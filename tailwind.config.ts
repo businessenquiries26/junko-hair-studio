@@ -13,7 +13,14 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        heading: ['Cormorant Garamond', 'serif'],
+        body: ['Montserrat', 'sans-serif'],
+      },
       colors: {
+        'coral-red': 'hsl(var(--coral-red))',
+        'charcoal': 'hsl(var(--charcoal))',
+        'cream': 'hsl(var(--cream))',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
