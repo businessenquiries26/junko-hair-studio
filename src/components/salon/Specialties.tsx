@@ -1,10 +1,40 @@
 const specialties = [
-  { icon: "fa-spa", name: "Balayage", description: "Hand-painted highlights for natural dimension" },
-  { icon: "fa-paint-brush", name: "Color Correction", description: "Expert color repair and transformation" },
-  { icon: "fa-leaf", name: "Keratin Treatment", description: "Smooth, frizz-free hair for months" },
-  { icon: "fa-scissors", name: "Precision Cutting", description: "Tailored cuts for your unique style" },
-  { icon: "fa-star", name: "Bridal Styling", description: "Elegant styles for your special day" },
-  { icon: "fa-heart", name: "Hair Extensions", description: "Natural-looking length and volume" }
+  { 
+    icon: "fa-spa", 
+    name: "Balayage", 
+    description: "Hand-painted highlights for natural dimension",
+    gradient: "from-coral-red/10 to-coral-red/5"
+  },
+  { 
+    icon: "fa-paint-brush", 
+    name: "Color Correction", 
+    description: "Expert color repair and transformation",
+    gradient: "from-primary/10 to-primary/5"
+  },
+  { 
+    icon: "fa-leaf", 
+    name: "Keratin Treatment", 
+    description: "Smooth, frizz-free hair for months",
+    gradient: "from-coral-red/10 to-coral-red/5"
+  },
+  { 
+    icon: "fa-scissors", 
+    name: "Precision Cutting", 
+    description: "Tailored cuts for your unique style",
+    gradient: "from-primary/10 to-primary/5"
+  },
+  { 
+    icon: "fa-star", 
+    name: "Bridal Styling", 
+    description: "Elegant styles for your special day",
+    gradient: "from-coral-red/10 to-coral-red/5"
+  },
+  { 
+    icon: "fa-heart", 
+    name: "Hair Extensions", 
+    description: "Natural-looking length and volume",
+    gradient: "from-primary/10 to-primary/5"
+  }
 ];
 
 const Specialties = () => {
@@ -22,18 +52,26 @@ const Specialties = () => {
           {specialties.map((specialty, index) => (
             <div 
               key={index}
-              className="text-center p-8 rounded-lg bg-background hover:shadow-lg transition-shadow duration-300 animate-fade-in"
+              className={`group relative overflow-hidden text-center p-10 rounded-2xl bg-gradient-to-br ${specialty.gradient} border border-border/50 hover:border-primary/30 hover:shadow-2xl transition-all duration-500 animate-fade-in`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-6">
-                <i className={`fas ${specialty.icon} text-2xl text-primary`}></i>
+              {/* Decorative background element */}
+              <div className="absolute -top-10 -right-10 w-32 h-32 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors duration-500"></div>
+              
+              <div className="relative z-10">
+                <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-primary to-primary/80 shadow-lg mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                  <i className={`fas ${specialty.icon} text-3xl text-white`}></i>
+                </div>
+                <h3 className="text-2xl font-heading font-bold text-foreground mb-4 group-hover:text-primary transition-colors duration-300">
+                  {specialty.name}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  {specialty.description}
+                </p>
+                
+                {/* Decorative bottom accent */}
+                <div className="mt-6 w-16 h-1 bg-gradient-to-r from-primary/0 via-primary to-primary/0 mx-auto group-hover:w-24 transition-all duration-300"></div>
               </div>
-              <h3 className="text-xl font-heading font-semibold text-foreground mb-3">
-                {specialty.name}
-              </h3>
-              <p className="text-muted-foreground">
-                {specialty.description}
-              </p>
             </div>
           ))}
         </div>
