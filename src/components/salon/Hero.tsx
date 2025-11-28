@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import heroImage from "@/assets/hero-salon.jpg";
 
 interface HeroProps {
   onBookClick: () => void;
@@ -10,7 +11,7 @@ const Hero = ({ onBookClick }: HeroProps) => {
       id="home"
       className="relative min-h-screen flex items-center justify-center bg-cover bg-center"
       style={{
-        backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1920&h=1080&fit=crop')"
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${heroImage})`
       }}
     >
       <div className="container mx-auto px-6 text-center text-white">
